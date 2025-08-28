@@ -31,13 +31,15 @@ defmodule Util do
       message
       |>input(:string)
       |>String.to_float()
-    end
-  rescue
-    ArgumentError ->
-      show_message("Error: El valor ingresado no es un decimal valido.")
 
-      message
+    rescue
+      ArgumentError ->
+        show_message("Error: El valor ingresado no es un decimal valido.")
+
+        message
       |> input(:float)
+    end
+
   end
 
 end
