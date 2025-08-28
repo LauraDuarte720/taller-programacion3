@@ -14,7 +14,7 @@ defmodule Util do
   def input(message, :integer) do
     try do
       message
-      |> input(:string)
+      |> input(:String)
       |> String.to_integer()
     rescue
       ArgumentError ->
@@ -29,7 +29,7 @@ defmodule Util do
   def input(message, :float) do
     try do
       message
-      |>input(:string)
+      |>input(:String)
       |>String.to_float()
 
     rescue
