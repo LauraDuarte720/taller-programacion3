@@ -42,4 +42,16 @@ defmodule Util do
 
   end
 
+  def format_price(number) when is_float(number) do
+    number
+    |> :erlang.float_to_binary([decimals: 2])
+    |> String.replace(~r/(?<=\d)(?=(\d{3})+(\.|,))/, ",")
+  end
+
+  def format_price(number) when is_integer(number) do
+    number
+    |> Integer.to_string()
+    |> String.replace(~r/(?<=\d)(?=(\d{3})+$)/, ",")
+  end
+
 end
