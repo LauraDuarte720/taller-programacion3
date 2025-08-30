@@ -12,10 +12,10 @@ defmodule Vehiculo_peaje do
 
   def registrar_vehiculo() do
     placa =
-      Util.input("Ingrese la placa del vehiculo: ", :String)
+      Util.input("Ingrese la placa del vehiculo: ", :string)
       |> String.upcase()
     vehiculo =
-      Util.input("Ingrese el tipo de vehículo: ", :String)
+      Util.input("Ingrese el tipo de vehículo: ", :string)
       |> String.capitalize()
     tonelada = Util.input("Ingrese el peso del vehículo (toneladas): ", :float)
 
@@ -31,7 +31,7 @@ defmodule Vehiculo_peaje do
       tarifa == 0 ->
         Util.show_message("El tipo de vehículo no existe, reintente de nuevo")
         registrar_vehiculo()
-      true -> Util.show_message("Vehículo #{placa} (#{vehiculo}) debe pagar #{Util.format_price (tarifa)}")
+      true -> Util.show_message("Vehículo #{placa} (#{vehiculo}) debe pagar $#{Util.format_price (tarifa)}")
 
     end
   end

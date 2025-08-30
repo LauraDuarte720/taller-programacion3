@@ -14,7 +14,7 @@ defmodule Util do
   @doc """
     Solicita una entrada de texto al usuario y la retorna como `string`.
   """
-  def input(message, :String) do
+  def input(message, :string) do
     System.cmd("java", ["-cp", ".", "Mensaje", "input", message])
     |> elem(0)
     |> String.trim()
@@ -28,7 +28,7 @@ defmodule Util do
   def input(message, :integer) do
     try do
       message
-      |> input(:String)
+      |> input(:string)
       |> String.to_integer()
     rescue
       ArgumentError ->
@@ -46,7 +46,7 @@ defmodule Util do
   def input(message, :float) do
     try do
       message
-      |>input(:String)
+      |>input(:string)
       |>String.to_float()
 
     rescue

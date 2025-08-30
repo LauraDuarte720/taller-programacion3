@@ -10,7 +10,7 @@ defmodule Calculo_salario do
     salario base y horas extra.
   """
   def calcular_salario do
-    nombre = Util.input("Ingrese el nombre del empleado: ", :String)
+    nombre = Util.input("Ingrese el nombre del empleado: ", :string)
     salario = Util.input("Ingrese el salario base: ", :float)
     horas_extra = Util.input("Ingrese las horas extra trabajadas: ", :integer)
     valor_hora = salario / 160

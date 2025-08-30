@@ -9,7 +9,7 @@ defmodule Control_libreria do
   unidades y precio unitario
   """
   def registrar_libro do
-    titulo = Util.input("Ingrese el título del libro: ", :String)
+    titulo = Util.input("Ingrese el título del libro: ", :string)
     unidades = Util.input("Ingrese la cantidad de unidades disponibles: ", :integer)
     precio_unitario = Util.input("Ingrese el precio unitario: ", :float)
     valor_inventario = unidades * precio_unitario
