@@ -6,8 +6,9 @@ defmodule Calculo_salario do
     valor_hora = salario / 160
     salario_total = salario + horas_extra * (valor_hora * 1.5)
 
-    Util.show_message("El salario total de #{nombre} es de #{salario_total}")
+    Util.show_message("El salario total de #{nombre} es de #{Util.format_price(salario_total)}")
   end
 
-  Calculo_salario.calcular_salario()
 end
+
+Calculo_salario.calcular_salario()
