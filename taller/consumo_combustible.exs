@@ -1,5 +1,13 @@
 defmodule Consumo_combustible do
 
+  @moduledoc """
+  Módulo para calcular el rendimiento de un vehículo.
+  """
+
+  @doc """
+  Calcula e imprime el rendimiento de un vehículo en km/L
+  según la distancia recorrida y el combustible consumido.
+  """
   def calcular_consumo_combustible()do
     nombre = Util.input("Ingrese el nombre del conductor", :String)
     distancia = Util.input("Ingrese la distancia recorrida en km", :float)

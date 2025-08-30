@@ -1,9 +1,22 @@
 defmodule Vehiculo_peaje do
 
+  @moduledoc """
+    Módulo para registrar vehículos en un peaje y calcular el valor a pagar
+    según su tipo y peso.
+  """
+
+  @doc """
+    Solicita al usuario la placa, tipo y peso del vehículo.
+    Calcula la tarifa correspondiente y muestra el valor a pagar.
+  """
+
   def registrar_vehiculo() do
-    placa = Util.input("Ingrese la placa del vehiculo: ", :String)
-    |> String.upcase()
-    vehiculo = Util.input("Ingrese el tipo de vehículo: ", :String)
+    placa =
+      Util.input("Ingrese la placa del vehiculo: ", :String)
+      |> String.upcase()
+    vehiculo =
+      Util.input("Ingrese el tipo de vehículo: ", :String)
+      |> String.capitalize()
     tonelada = Util.input("Ingrese el peso del vehículo (toneladas): ", :float)
 
     tarifa =

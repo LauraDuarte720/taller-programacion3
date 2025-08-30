@@ -1,4 +1,14 @@
 defmodule Calculo_salario do
+
+  @moduledoc """
+    Módulo para calcular el salario total de un empleado
+    incluyendo horas extra.
+  """
+
+  @doc """
+    Calcula y muestra el salario total de un empleado a partir de un
+    salario base y horas extra.
+  """
   def calcular_salario do
     nombre = Util.input("Ingrese el nombre del empleado: ", :String)
     salario = Util.input("Ingrese el salario base: ", :float)

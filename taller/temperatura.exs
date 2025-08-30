@@ -1,5 +1,12 @@
 defmodule Conversion_temperatura do
 
+  @moduledoc """
+    Módulo para convertir temperaturas de °C a °F y K.
+  """
+
+  @doc """
+    Convierte una temperatura en grados Celsius a Fahrenheit y Kelvin.
+  """
   def convertir_temperatura() do
     usuario = Util.input("Ingrese su nombre:", :String)
     temperatura = Util.input("Ingrese la temperatura en °C:", :float)

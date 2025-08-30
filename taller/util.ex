@@ -1,9 +1,19 @@
 defmodule Util do
 
+  @moduledoc """
+    Funciones de utilidad para entrada/salida y formateo de datos.
+  """
+
+  @doc """
+    Muestra un mensaje usando el programa Java `Mensaje`.
+  """
   def show_message(message) do
     System.cmd("java", ["-cp", ".", "Mensaje", message])
   end
 
+  @doc """
+    Solicita una entrada de texto al usuario y la retorna como `string`.
+  """
   def input(message, :String) do
     System.cmd("java", ["-cp", ".", "Mensaje", "input", message])
     |> elem(0)
@@ -11,6 +21,10 @@ defmodule Util do
 
   end
 
+  @doc """
+    Solicita una entrada numérica entera al usuario, en caso de error,
+    vuelve a solicitar el dato.
+  """
   def input(message, :integer) do
     try do
       message
@@ -25,7 +39,10 @@ defmodule Util do
     end
   end
 
-
+  @doc """
+    Solicita una entrada numérica decimal (float) al usuario, en caso de error,
+    vuelve a solicitar el dato.
+  """
   def input(message, :float) do
     try do
       message
@@ -42,12 +59,18 @@ defmodule Util do
 
   end
 
+  @doc """
+    Da formato de precio a un número flotante con dos decimales y separadores de miles.
+  """
   def format_price(number) when is_float(number) do
     number
     |> :erlang.float_to_binary([decimals: 2])
     |> String.replace(~r/(?<=\d)(?=(\d{3})+(\.|,))/, ",")
   end
 
+  @doc """
+    Da formato de precio a un número entero con separadores de miles.
+  """
   def format_price(number) when is_integer(number) do
     number
     |> Integer.to_string()
