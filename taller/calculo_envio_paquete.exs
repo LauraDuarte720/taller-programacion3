@@ -14,13 +14,13 @@ defmodule  Calculo_paquete do
   def calcular_envio do
     nombre = Util.input("Ingrese su nombre: ", :string)
     peso = Util.input("Ingrese el peso del paquete: ", :float)
-    tipo_envio = Util.pedir_tipo(["Economico", "Express", "Internacional"], "Ingrese el tipo de envío (Economico, Express, Internacional): ")
+    tipo_envio = Util.pedir_tipo(["Economico", "Express", "Internacional"], "Ingrese el tipo de envío (Economico, Express, Internacional): ", "El tipo de envío no existe, reintente de nuevo")
     tarifa = aplicar_tarifa(tipo_envio, peso)
     precio_total = peso * tarifa
     tupla = {nombre, "#{peso} kg", tipo_envio, "$ #{Util.format_price(precio_total)}"}
     tupla
     |> Tuple.to_list()
-    |> Enum.each(&IO.puts/1)
+    |> Enum.each(&Util.show_message/1)
     tupla
   end
 

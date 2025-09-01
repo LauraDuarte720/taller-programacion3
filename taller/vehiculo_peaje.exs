@@ -14,9 +14,7 @@ defmodule Vehiculo_peaje do
     placa =
       Util.input("Ingrese la placa del vehiculo: ", :string)
       |> String.upcase()
-    vehiculo =
-      Util.input("Ingrese el tipo de vehículo: ", :string)
-      |> String.capitalize()
+    vehiculo = Util.pedir_tipo(["Carro", "Moto", "Camion"], "Ingrese el tipo de vehículo(Carro, Moto, Camioni): ", "El tipo de vehículo no existe, reintente de nuevo")
     tonelada = Util.input("Ingrese el peso del vehículo (toneladas): ", :float)
 
     tarifa =
@@ -24,17 +22,10 @@ defmodule Vehiculo_peaje do
         vehiculo == "Carro" -> 10000
         vehiculo == "Moto" -> 5000
         vehiculo == "Camion" -> 20000 + (tonelada * 2000)
-        true -> 0
       end
 
-    cond do
-      tarifa == 0 ->
-        Util.show_message("El tipo de vehículo no existe, reintente de nuevo")
-        registrar_vehiculo()
-      true -> Util.show_message("Vehículo #{placa} (#{vehiculo}) debe pagar $#{Util.format_price (tarifa)}")
+      Util.show_message("Vehículo #{placa} (#{vehiculo}) debe pagar $#{Util.format_price (tarifa)}")
 
-    end
   end
-
 end
 Vehiculo_peaje.registrar_vehiculo()

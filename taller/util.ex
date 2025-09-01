@@ -102,7 +102,7 @@ defmodule Util do
       - 'lista': Lista que contiene los valores aceptables
       - 'mensaje': Texto que se muestra al usuario para solicitar la entrada
   """
-  def pedir_tipo(lista, mensaje) do
+  def pedir_tipo(lista, mensaje, mensaje_error) do
     tipo_envio = Util.input(mensaje, :string)
     |>String.capitalize()
 
