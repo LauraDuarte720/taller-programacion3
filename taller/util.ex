@@ -6,6 +6,9 @@ defmodule Util do
 
   @doc """
     Muestra un mensaje usando el programa Java `Mensaje`.
+
+    ## Parámetros
+      - 'message': Texto a mostrar al usuario
   """
   def show_message(message) do
     System.cmd("java", ["-cp", ".", "Mensaje", message])
@@ -13,6 +16,9 @@ defmodule Util do
 
   @doc """
     Solicita una entrada de texto al usuario y la retorna como `string`.
+
+    ## Parámetros
+      - 'mensaje': Texto que se muestra al usuario para solicitar la entrada
   """
   def input(message, :string) do
     System.cmd("java", ["-cp", ".", "Mensaje", "input", message])
@@ -24,6 +30,9 @@ defmodule Util do
   @doc """
     Solicita una entrada numérica entera al usuario, en caso de error,
     vuelve a solicitar el dato.
+
+    ## Parámetros
+      - 'mensaje': Texto que se muestra al usuario para solicitar la entrada
   """
   def input(message, :integer) do
     try do
@@ -42,6 +51,9 @@ defmodule Util do
   @doc """
     Solicita una entrada numérica decimal (float) al usuario, en caso de error,
     vuelve a solicitar el dato.
+
+    ## Parámetros
+      - 'mensaje': Texto que se muestra al usuario para solicitar la entrada
   """
   def input(message, :float) do
     try do
@@ -61,6 +73,9 @@ defmodule Util do
 
   @doc """
     Da formato de precio a un número flotante con dos decimales y separadores de miles.
+
+    ## Parámetros
+      - 'number': Numero decimal al cual se le va a aplicar el formato
   """
   def format_price(number) when is_float(number) do
     number
@@ -70,6 +85,9 @@ defmodule Util do
 
   @doc """
     Da formato de precio a un número entero con separadores de miles.
+
+    ## Parámetros
+      - 'number': Numero entero al cual se le va a aplicar el formato
   """
   def format_price(number) when is_integer(number) do
     number
