@@ -14,7 +14,7 @@ defmodule  Calculo_paquete do
   def calcular_envio do
     nombre = Util.input("Ingrese su nombre: ", :string)
     peso = Util.input("Ingrese el peso del paquete: ", :float)
-    tipo_envio = pedir_tipo(["Economico", "Express", "Internacional"], "Ingrese el tipo de envío (Economico, Express, Internacional): ")
+    tipo_envio = Util.pedir_tipo(["Economico", "Express", "Internacional"], "Ingrese el tipo de envío (Economico, Express, Internacional): ")
     tarifa = aplicar_tarifa(tipo_envio, peso)
     precio_total = peso * tarifa
     tupla = {nombre, "#{peso} kg", tipo_envio, "$ #{Util.format_price(precio_total)}"}
@@ -25,24 +25,6 @@ defmodule  Calculo_paquete do
   end
 
 
-@doc """
-    Pide una cadena al usuario y valida que esta esté dentro de la lista permitida
-
-    ## Parámetros
-      - 'lista': Lista que contiene los valores aceptables
-      - 'mensaje': Texto que se muestra al usuario para solicitar la entrada
-  """
-  def pedir_tipo(lista, mensaje) do
-    tipo_envio = Util.input(mensaje, :string)
-    |>String.capitalize()
-
-    if tipo_envio not in lista do
-      Util.show_message("Por favor ingrese un tipo válido")
-      pedir_tipo(lista, mensaje)
-    else
-      tipo_envio
-      end
-  end
 
 
   @doc """

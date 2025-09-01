@@ -95,4 +95,24 @@ defmodule Util do
     |> String.replace(~r/(?<=\d)(?=(\d{3})+$)/, ",")
   end
 
+  @doc """
+    Pide una cadena al usuario y valida que esta esté dentro de la lista permitida
+
+    ## Parámetros
+      - 'lista': Lista que contiene los valores aceptables
+      - 'mensaje': Texto que se muestra al usuario para solicitar la entrada
+  """
+  def pedir_tipo(lista, mensaje) do
+    tipo_envio = Util.input(mensaje, :string)
+    |>String.capitalize()
+
+    if tipo_envio not in lista do
+      Util.show_message("Por favor ingrese un tipo válido")
+      pedir_tipo(lista, mensaje)
+    else
+      tipo_envio
+      end
+  end
+
+
 end
